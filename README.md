@@ -22,6 +22,7 @@ If this becomes its own GitHub repository, the repository root should be the con
 | Main MATLAB runners | `run_thumb_smc_mb.m`, `run_thumb_extra_tests.m`, `run_thumb_ndob.m` | Main entry points for the plain SMC, stressed validation, and NDOB comparison |
 | Shared visualisation | `animate_thumb_2d.m`, `animate_thumb_2d_ndob.m` | Create the thumb animations and live disturbance panels |
 | Shared model helpers | `disturbance.m`, `ref_trajectory.m`, `manipulator_M.m`, `manipulator_CG.m`, `thumb_kinematics.m` | Reference, disturbance, analytic dynamics, and standalone DH/FK utility |
+| Documentation figure generators | `make_thumb_kinematics_figure.m`, `make_linkedin_beforeafter.m`, `make_linkedin_infographic.m` | Recreate the published documentation and LinkedIn-ready summary figures |
 | Simulink path | `plant_dynamics.m`, `SMC_eq_torque.m`, `sat_sign.m`, `build_thumb_smc_model.m`, `model_thumb_smc_mb.slx` | Reference Simulink implementation and its helper functions |
 | Tuning utilities | `gain_sweep_fn.m`, `gs_run.m`, `gs_rk4.m` | Parameter sweeps for switching-gain and boundary-layer tuning |
 
@@ -107,6 +108,9 @@ Important boundary:
 | `animate_thumb_2d.m` | Creates the plain-SMC and stressed-SMC animation with the disturbance panel | Called by `run_thumb_smc_mb.m` and `run_thumb_extra_tests.m` |
 | `animate_thumb_2d_ndob.m` | Same animation layout but overlays the estimated disturbance | Called by `run_thumb_ndob.m` |
 | `thumb_kinematics.m` | Standalone DH/FK utility for fingertip pose, transforms, and joint positions | Not used in the simulation loop |
+| `make_thumb_kinematics_figure.m` | Rebuilds the DH/FK presentation figure from `thumb_kinematics.m` | Documentation asset generator |
+| `make_linkedin_beforeafter.m` | Rebuilds the stressed-SMC versus NDOB comparison graphic | Documentation asset generator |
+| `make_linkedin_infographic.m` | Rebuilds the overview infographic used at the top of the README | Documentation asset generator |
 | `thumb_dh_forward_kinematics.png` | Rendered kinematics figure used for documentation/GitHub presentation | Commit if you want README visuals |
 | `thumb_linkedin_beforeafter.png` | Rendered summary of stressed SMC vs NDOB recovery | Commit if you want README visuals |
 | `thumb_linkedin_infographic.png` | Rendered overview infographic | Commit if you want README visuals |
@@ -317,4 +321,7 @@ If you want the full academic project, also keep:
 - `gs_run.m`
 - `gs_rk4.m`
 - `thumb_kinematics.m`
+- `make_thumb_kinematics_figure.m`
+- `make_linkedin_beforeafter.m`
+- `make_linkedin_infographic.m`
 - the README PNG assets listed above
