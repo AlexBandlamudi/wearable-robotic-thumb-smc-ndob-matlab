@@ -1,10 +1,10 @@
-# Wearable Robotic Thumb - Model-Based SMC + Nonlinear Disturbance Observer
+# Disturbance-Observer-Augmented Sliding-Mode Control of a 3-DOF Robotic Thumb
 
 <p align="center">
 	<img src="thumb_linkedin_infographic.png" alt="Project infographic for the robotic thumb controller" width="860">
 </p>
 
-Pure-MATLAB and Simulink study of a 3-DOF wearable robotic thumb exoskeleton. The repository contains an analytic Euler-Lagrange plant model, a Slotine-Li model-based sliding mode controller, and a Chen-style nonlinear disturbance observer. Under the same aggressive 2.40x load case, the NDOB-assisted controller reduces the PIP-joint phase-3 RMS tracking error from 151.7 mrad to 1.10 mrad while using a 4x smaller switching gain on that joint.
+Pure-MATLAB control study of a 3-DOF robotic thumb, with a companion Simulink reference model. The repository combines an analytic Euler-Lagrange plant model, Slotine-Li model-based sliding-mode control, and a Chen-style nonlinear disturbance observer. Under the same aggressive 2.40x load case, the NDOB-assisted controller reduces the PIP-joint phase-3 RMS tracking error from 151.7 mrad to 1.10 mrad while using a 4x smaller switching gain on that joint.
 
 For the long-form derivation, development notes, and the full mathematical discussion, see [explanation.md](explanation.md).
 
@@ -178,6 +178,14 @@ Need: K_i > |d_i|_max
 
 For the PIP joint in the 2.40x case, the disturbance exceeds the available switching gain. The reaching condition is violated, the sliding surface does not reconverge, and the joint drifts away from the reference during the load phase. The NDOB reduces the residual disturbance seen by the switching term, so the same scenario becomes trackable again with a smaller `K`.
 
+## Contribution and practical value
+
+The strongest contribution here is architectural rather than purely parametric.
+
+- The comparison is controlled: the plant, trajectory, disturbance profile, and numerical integrator are held fixed, so the performance gap comes from the controller architecture rather than from a changed test setup.
+- The observer changes the disturbance path seen by the switching term. That is why the controller can cut the PIP phase-3 RMS error by 138x while also reducing the switching gain from 8.0 to 2.0 mN.m.
+- That trade matters for real systems. Lower switching effort means a cleaner path toward actuator limits, reduced chatter, and more credible contact-rich thumb assistance under load.
+
 ---
 
 ## Two key output videos
@@ -261,3 +269,9 @@ This figure is the short version of the full story. It compresses the failure an
 | `thumb_dh_forward_kinematics.png` | documentation asset | Kinematic and DH summary for the 3R thumb model. Read this before the control results if you want the geometry context. |
 | `thumb_linkedin_beforeafter.png` | documentation asset | Condensed failure-versus-recovery summary with headline KPIs. Good as the quick executive figure after the detailed plots. |
 | `thumb_linkedin_infographic.png` | documentation asset | One-page overview of the entire project: plant, controller, stress test, and results. |
+
+---
+
+## Next step
+
+Next step: carry the controller and thumb model into NVIDIA Isaac Sim for digital-twin validation, then transfer the same architecture to a physical robotic-thumb prototype.
