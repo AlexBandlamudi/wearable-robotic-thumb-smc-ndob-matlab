@@ -20,7 +20,7 @@ For the long-form derivation, development notes, and the full mathematical discu
 | Shared model helpers | `disturbance.m`, `ref_trajectory.m`, `manipulator_M.m`, `manipulator_CG.m`, `thumb_kinematics.m` | Reference generation, disturbances, analytic dynamics, and standalone kinematics |
 | Simulink reference path | `plant_dynamics.m`, `SMC_eq_torque.m`, `sat_sign.m`, `build_thumb_smc_model.m`, `model_thumb_smc_mb.slx` | Simulink implementation of the same control idea |
 | Tuning utilities | `gain_sweep_fn.m`, `gs_run.m`, `gs_rk4.m` | Parameter sweeps for switching-gain and boundary-layer studies |
-| README media assets | `thumb_linkedin_infographic.png`, `thumb_dh_forward_kinematics.png`, `thumb_linkedin_beforeafter.png`, `thumb_fullcycle_tracking.png`, `thumb_ndob_tracking.png`, `thumb_ndob_disturbance_est.png`, `thumb_fullcycle_anim.mp4`, `thumb_ndob_animation.mp4` | Visual outputs embedded in this page |
+| README media assets | `thumb_linkedin_infographic.png`, `thumb_dh_forward_kinematics.png`, `thumb_linkedin_beforeafter.png`, `thumb_fullcycle_tracking.png`, `thumb_ndob_tracking.png`, `thumb_ndob_disturbance_est.png`, `thumb_fullcycle_anim.gif`, `thumb_ndob_animation.gif`, `thumb_fullcycle_anim.mp4`, `thumb_ndob_animation.mp4` | Visual outputs embedded in this page |
 
 ---
 
@@ -185,8 +185,8 @@ For the PIP joint in the 2.40x case, the disturbance exceeds the available switc
 Watch these first. Both runs use the same aggressive load case. The left video shows the plain SMC stress test, and the right video shows the NDOB-assisted run under the same disturbance profile.
 
 <p align="center">
-	<video src="thumb_fullcycle_anim.mp4" controls preload="metadata" width="48%"></video>
-	<video src="thumb_ndob_animation.mp4" controls preload="metadata" width="48%"></video>
+	<a href="thumb_fullcycle_anim.mp4"><img src="thumb_fullcycle_anim.gif" alt="Animated preview of the stressed plain-SMC run" width="48%"></a>
+	<a href="thumb_ndob_animation.mp4"><img src="thumb_ndob_animation.gif" alt="Animated preview of the NDOB-assisted run" width="48%"></a>
 </p>
 
 <p align="center">
@@ -194,6 +194,8 @@ Watch these first. Both runs use the same aggressive load case. The left video s
 	|
 	<a href="thumb_ndob_animation.mp4">NDOB + SMC under the same load</a>
 </p>
+
+Click either animated preview to open the full MP4 output.
 
 What to look for:
 
