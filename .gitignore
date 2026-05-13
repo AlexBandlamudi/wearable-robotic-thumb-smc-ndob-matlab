@@ -8,6 +8,10 @@
 *.mp4
 *.png
 
+# Keep only the README video assets
+!thumb_fullcycle_anim.mp4
+!thumb_ndob_animation.mp4
+
 # Keep only the PNGs that the GitHub README embeds
 !thumb_dh_forward_kinematics.png
 !thumb_linkedin_beforeafter.png
