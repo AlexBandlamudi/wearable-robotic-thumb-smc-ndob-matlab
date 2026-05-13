@@ -1,10 +1,10 @@
-# Disturbance-Observer-Augmented Sliding-Mode Control of a 3-DOF Robotic Thumb
+# Robust Trajectory Tracking of a 3-DOF Robotic Thumb via Disturbance-Observer-Augmented Model-Based Sliding-Mode Control
 
 <p align="center">
 	<img src="thumb_linkedin_infographic.png" alt="Project infographic for the robotic thumb controller" width="860">
 </p>
 
-Pure-MATLAB control study of a 3-DOF robotic thumb, with a companion Simulink reference model. The repository combines an analytic Euler-Lagrange plant model, Slotine-Li model-based sliding-mode control, and a Chen-style nonlinear disturbance observer. Under the same aggressive 2.40x load case, the NDOB-assisted controller reduces the PIP-joint phase-3 RMS tracking error from 151.7 mrad to 1.10 mrad while using a 4x smaller switching gain on that joint.
+Pure-MATLAB control study of a 3-DOF robotic thumb. The repository combines an analytic Euler-Lagrange plant model, Slotine-Li model-based sliding-mode control, and a Chen-style nonlinear disturbance observer. Under the same aggressive 2.40x load case, the NDOB-assisted controller reduces the PIP-joint phase-3 RMS tracking error from 151.7 mrad to 1.10 mrad while using a 4x smaller switching gain on that joint.
 
 For the long-form derivation, development notes, and the full mathematical discussion, see [explanation.md](explanation.md).
 
@@ -18,7 +18,7 @@ For the long-form derivation, development notes, and the full mathematical discu
 | Main MATLAB runners | `run_thumb_smc_mb.m`, `run_thumb_extra_tests.m`, `run_thumb_ndob.m` | Baseline SMC, aggressive-load failure case, and NDOB recovery case |
 | Shared visualisation | `animate_thumb_2d.m`, `animate_thumb_2d_ndob.m` | Animation and disturbance-panel rendering |
 | Shared model helpers | `disturbance.m`, `ref_trajectory.m`, `manipulator_M.m`, `manipulator_CG.m`, `thumb_kinematics.m` | Reference generation, disturbances, analytic dynamics, and standalone kinematics |
-| Simulink reference path | `plant_dynamics.m`, `SMC_eq_torque.m`, `sat_sign.m`, `build_thumb_smc_model.m`, `model_thumb_smc_mb.slx` | Simulink implementation of the same control idea |
+| Supplementary modeling files | `plant_dynamics.m`, `SMC_eq_torque.m`, `sat_sign.m`, `build_thumb_smc_model.m`, `model_thumb_smc_mb.slx` | Additional model-support files included with the project |
 | Tuning utilities | `gain_sweep_fn.m`, `gs_run.m`, `gs_rk4.m` | Parameter sweeps for switching-gain and boundary-layer studies |
 | README media assets | `thumb_linkedin_infographic.png`, `thumb_dh_forward_kinematics.png`, `thumb_linkedin_beforeafter.png`, `thumb_fullcycle_tracking.png`, `thumb_ndob_tracking.png`, `thumb_ndob_disturbance_est.png`, `thumb_fullcycle_anim.gif`, `thumb_ndob_animation.gif`, `thumb_fullcycle_anim.mp4`, `thumb_ndob_animation.mp4` | Visual outputs embedded in this page |
 
